@@ -33,11 +33,10 @@ def printGoodsList(ilt):
 		print(tplt.format(count,g[0],g[1]))
 
 def main():
-	httphd=urllib.request.HTTPHandler(debuglevel=1)
-	httpshd=urllib.request.HTTPSHandler(debuglevel=1)
-	opener=urllib.request.build_opener(httphd,httpshd)
+	headers = ("User-Agent","Mozilla/5.0 (X11; Ubuntu; Linux) Gecko/20100101 Firefox/57.0")
+	opener = urllib.request.build_opener()
+	opener.addheaders = [headers]
 	urllib.request.install_opener(opener)
-
 	goods = "书包"
 	depth = 2
 	start_url = "https://s.taobao.com/search?q="+goods
